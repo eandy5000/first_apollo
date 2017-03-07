@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import gql from 'graphql-tag';
 
 import query from '../queries/fetchSongs';
@@ -16,7 +16,13 @@ class SongList extends Component {
     }
     renderSongs() {
         return this.props.data.songs.map(song => {
-            return <li key={song.id} className="collection-item">
+            return <li 
+                        key={song.id} 
+                        className="collection-item"
+                        onClick={() =>{
+                            hashHistory.push(`/songs/${song.id}`);
+                        }}
+                    >
                         {song.title}
                         <i 
                             className="material-icons trash"
