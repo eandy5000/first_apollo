@@ -19,11 +19,14 @@ class SongList extends Component {
             return <li 
                         key={song.id} 
                         className="collection-item"
-                        onClick={() =>{
-                            hashHistory.push(`/songs/${song.id}`);
-                        }}
                     >
-                        {song.title}
+                        <Link
+                            className="song-list"
+                            onClick={() => {hashHistory.push(`/songs/${song.id}`)
+                        }}
+                        >
+                            {song.title}
+                        </Link>
                         <i 
                             className="material-icons trash"
                             onClick={() => this.onSongDelete(song.id)}

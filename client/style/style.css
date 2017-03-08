@@ -8,9 +8,12 @@
 }
 
 .thumb {
-    color: limegreen;
+    color: dodgerblue;
 }
 
 .material-icons {
     cursor: pointer;
+}
+.song-list {
+    color: black;
 }
