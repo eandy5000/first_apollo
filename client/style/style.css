@@ -7,6 +7,10 @@
     color: red;
 }
 
+.thumb {
+    color: limegreen;
+}
+
 .material-icons {
     cursor: pointer;
 }
