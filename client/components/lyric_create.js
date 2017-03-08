@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import fetchSong from '../queries/fetchSong';
 
 class LyricCreate extends Component {
     constructor(props) {
@@ -14,11 +15,16 @@ class LyricCreate extends Component {
     handleSubmit() {
         event.preventDefault();
         
-        this.props.mutate({
-            variables: {
+            this.props.mutate({
+            variables: { 
                 content: this.state.content,
-                songId: this.props.songId
-            },
+                songId: this.props.songId },
+            refetchQueries: [{
+                query: fetchSong,
+                variables: {
+                    id: this.props.songId
+                }
+            }]
         }).then(() => this.setState({content: ''}));
     }
 
